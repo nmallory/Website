@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dzines Web Services - Contact</title>
+    <link href="jquery.bxslider.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <link href="styles2.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="img/icons/favicon.png"/>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>-->
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script src='/path/to/jquery.min.js'></script>
+
+    <!-- Include styles -->
+    <link rel="stylesheet" href="css/responsivemultimenu.css" type="text/css"/>
+</head>
+<body>
+
+  <div id='cssmenu'>
+  <ul>
+     <li><a href='index.html'>Home</a></li>
+     <li class='active'><a href='#'>What We Do</a>
+        <ul>
+           <li><a href='webdesign.html'>Web Design</a>
+
+           </li>
+           <li><a href='graphicdesign.html'>Graphic Design</a>
+
+           </li>
+           <li><a href='development.html'>Seo</a>
+
+           </li>
+        </ul>
+     </li>
+     <li><a href='projects.html'>Our Work</a></li>
+     <li><a href='contact.html'>Contact</a></li>
+  </ul>
+  </div>
+
+<script>
+(function($) {
+
+  $.fn.menumaker = function(options) {
+
+      var cssmenu = $(this), settings = $.extend({
+        title: "Menu",
+        format: "dropdown",
+        sticky: false
+      }, options);
+
+      return this.each(function() {
+        cssmenu.prepend('<div id="menu-button">' + settings.title + '</div>');
+        $(this).find("#menu-button").on('click', function(){
+          $(this).toggleClass('menu-opened');
+          var mainmenu = $(this).next('ul');
+          if (mainmenu.hasClass('open')) {
+            mainmenu.hide().removeClass('open');
+          }
+          else {
+            mainmenu.show().addClass('open');
+            if (settings.format === "dropdown") {
+              mainmenu.find('ul').show();
+            }
+          }
+        });
+
+        cssmenu.find('li ul').parent().addClass('has-sub');
+
+        multiTg = function() {
+          cssmenu.find(".has-sub").prepend('<span class="submenu-button"></span>');
+          cssmenu.find('.submenu-button').on('click', function() {
+            $(this).toggleClass('submenu-opened');
+            if ($(this).siblings('ul').hasClass('open')) {
+              $(this).siblings('ul').removeClass('open').hide();
+            }
+            else {
+              $(this).siblings('ul').addClass('open').show();
+            }
+          });
+        };
+
+        if (settings.format === 'multitoggle') multiTg();
+        else cssmenu.addClass('dropdown');
+
+        if (settings.sticky === true) cssmenu.css('position', 'fixed');
+
+        resizeFix = function() {
+          if ($( window ).width() > 768) {
+            cssmenu.find('ul').show();
+          }
+
+          if ($(window).width() <= 768) {
+            cssmenu.find('ul').hide().removeClass('open');
+          }
+        };
+        resizeFix();
+        return $(window).on('resize', resizeFix);
+
+      });
+  };
+})(jQuery);
+
+(function($){
+$(document).ready(function(){
+
+$("#cssmenu").menumaker({
+   title: "Menu",
+   format: "multitoggle"
+});
+
+});
+})(jQuery);
+</script>
+
+
+
+
+
+
+
+
+    </header>
+<div class=video-section>
+  <div class="video-overlay">
+    <div class="content-wrapper">
+
+        <img src="dark-blurred.jpg"/>
+        <div class="text-wrapper">
+          <h2>Contact Us</h2>
+          <p class="smaller-text">Questions? Need Help? Call Us!</p></div>
+</div>
+</div>
+    </div>
+  <section class="left-col-contact">
+  <h3 class="smaller">Please use the form below to get in touch</h3>
+</div>
+
+  </section>
+
+  <section class="sidebar-contact">
+    <h3 class="smaller">Have a Question? Need Support?</h3>
+    <p>We are here to answer any questions or concerns you may have. We are available by phone
+    Monday through Friday, 9am to 5pm EST. Our support team is available 24/7 via email.</p>
+    <p class="icon"><i class="fa fa-phone"></i> (248) 291-7565</p>
+    <p class="icon"><i class="fa fa-envelope"></i> info@dzines.com</p>
+    <p class="icon"><i class="fa fa-location-arrow"></i> Oakland County</p>
+  </section>
+
+<div class="clearfix-padding"></div>
+
+<footer>
+  <div id="banner-wrapper">
+    <div class="icon-text">
+        <div class="icon-text-icon">
+
+    <ul class="footer-nav">
+
+      </ul>
+    </div>
+
+      <div class="icon-text-text">
+        <ul class="social">
+            <li><a href="mailto:nmall76@hotmail.com"><i class="fa fa-envelope-o"></i></a></li>
+            <li><a href="https://www.facebook.com/destini.james?ref=bookmarks"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/DestiniLJames"><i class="fa fa-twitter"></i></a></li>
+            <li><a href=""><i class="fa fa-youtube"></i></a></li>
+            <li><a href="https://www.instagram.com/nikitanicknick/"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+    </div>
+  </div>
+
+</footer>
+
+
+
+
+
+
+<footer class="second">
+  <p>&copy; Dzines Web Services</p>
+</footer>
+<!--End Second footer -->
+</body>
+</html>
